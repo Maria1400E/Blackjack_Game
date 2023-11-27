@@ -9,6 +9,14 @@ let deck = [];
 const tipos = ['C','D','H','S'];
 const esoeciales = ['A','J','Q','K'];
 
+
+let puntosJugador = 0;
+    puentosComputadora = 0;
+//Referencias del HTML
+const btnPedir = document.querySelector('#btnPedir');
+
+const puntosHTML = document.querySelectorAll('small');
+
 //Esta función crea un nuevo deck
 const crearDeck = () =>{
 
@@ -23,9 +31,7 @@ const crearDeck = () =>{
             deck.push(esp + tipo)
         }
     }
-
     deck = _.shuffle(deck);
-    console.log(deck);
     return deck;
 }
 crearDeck()
@@ -38,9 +44,6 @@ const pedirCarta = () => {
     }
 
     const carta = deck.pop();
-
-    console.log(deck);
-    console.log(carta);
     return carta;
 }
 
@@ -51,5 +54,13 @@ const valorCarta = (carta) => {
             : valor * 1;
 }
 
-const valor = valorCarta(pedirCarta());
-console.log(valor);
+// Eventos
+btnPedir.addEventListener('click', () => {
+
+    const carta = pedirCarta();
+    puntosJugador = puntosJugador + valorCarta(carta);
+    puntosHTML[0] = puntosJugador;
+
+    
+})
+
