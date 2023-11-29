@@ -112,6 +112,10 @@ btnPedir.addEventListener('click', () => {
 
     }else if(puntosJugador === 21){
 
+        setTimeout(() => {
+            alert('¡¡YOU WIN 👩🏽🚀✨!!');
+        }, 100 );
+
         btnPedir.disabled = true;
         btnDetener.disabled = true;
     }
